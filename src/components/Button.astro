@@ -1,0 +1,46 @@
+---
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  class?: string;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+const { 
+  variant = 'primary', 
+  size = 'md', 
+  href, 
+  class: className = '',
+  type = 'button',
+  ...rest 
+} = Astro.props;
+
+const baseClasses = 'inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg';
+
+const variants = {
+  primary: 'bg-primary dark:bg-primary-light text-white hover:bg-primary/90 dark:hover:bg-primary-light/90 focus:ring-primary',
+  secondary: 'bg-secondary dark:bg-secondary-light text-white hover:bg-secondary/90 dark:hover:bg-secondary-light/90 focus:ring-secondary',
+  outline: 'border-2 border-primary dark:border-primary-light text-primary dark:text-primary-light hover:bg-primary/10 dark:hover:bg-primary-light/10 focus:ring-primary',
+  ghost: 'text-primary dark:text-primary-light hover:bg-primary/10 dark:hover:bg-primary-light/10 focus:ring-primary',
+};
+
+const sizes = {
+  sm: 'px-3 py-1.5 text-sm',
+  md: 'px-5 py-2.5 text-base',
+  lg: 'px-8 py-4 text-lg',
+};
+
+const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`;
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element 
+  href={href} 
+  class={classes} 
+  type={href ? undefined : type}
+  {...rest}
+>
+  <slot />
+</Element>

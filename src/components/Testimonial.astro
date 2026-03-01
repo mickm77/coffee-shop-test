@@ -1,0 +1,30 @@
+---
+export interface Props {
+  quote: string;
+  author: string;
+  role?: string;
+  avatarUrl?: string;
+}
+
+const { quote, author, role, avatarUrl } = Astro.props;
+---
+
+<div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 border border-gray-100 dark:border-gray-800 italic relative">
+  <div class="text-4xl text-primary/20 dark:text-primary/10 absolute top-4 left-6">"</div>
+  <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed relative z-10 pt-2 mb-6">
+    {quote}
+  </p>
+  <div class="flex items-center gap-4">
+    {avatarUrl ? (
+      <img src={avatarUrl} alt={author} class="w-12 h-12 rounded-full object-cover" />
+    ) : (
+      <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-primary-light font-bold text-xl">
+        {author.charAt(0)}
+      </div>
+    )}
+    <div>
+      <h4 class="font-bold text-gray-900 dark:text-white not-italic">{author}</h4>
+      {role && <p class="text-sm text-gray-500 dark:text-gray-400 not-italic">{role}</p>}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+---
+export interface Props {
+  headline: string;
+  subheadline?: string;
+  ctaText?: string;
+  ctaUrl?: string;
+  secondaryCtaText?: string;
+  secondaryCtaUrl?: string;
+  backgroundImage?: string;
+  align?: 'left' | 'center';
+}
+
+const { 
+  headline, 
+  subheadline, 
+  ctaText, 
+  ctaUrl, 
+  secondaryCtaText, 
+  secondaryCtaUrl, 
+  backgroundImage,
+  align = 'center'
+} = Astro.props;
+
+import Button from './Button.astro';
+---
+
+<div class="relative bg-gray-900 overflow-hidden">
+  {backgroundImage && (
+    <div class="absolute inset-0 z-0">
+      <img src={backgroundImage} alt="" class="w-full h-full object-cover opacity-30" />
+      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent mix-blend-multiply" />
+    </div>
+  )}
+  
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class={`py-24 md:py-32 lg:py-48 ${align === 'center' ? 'text-center' : 'text-left md:w-2/3'}`}>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-7xl mb-6">
+        {headline}
+      </h1>
+      {subheadline && (
+        <p class="mt-6 text-xl text-gray-300 max-w-3xl mb-10 leading-relaxed font-medium">
+          {subheadline}
+        </p>
+      )}
+      <div class={`mt-10 flex flex-col sm:flex-row gap-4 ${align === 'center' ? 'justify-center mx-auto' : 'justify-start'}`}>
+        {ctaText && ctaUrl && (
+          <Button href={ctaUrl} variant="primary" size="lg">{ctaText}</Button>
+        )}
+        {secondaryCtaText && secondaryCtaUrl && (
+          <Button href={secondaryCtaUrl} variant="outline" size="lg" class="border-white text-white hover:bg-white/10">{secondaryCtaText}</Button>
+        )}
+      </div>
+    </div>
+  </div>
+</div>

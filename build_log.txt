@@ -1,0 +1,24 @@
+
+> lego-small-business@0.1.0 build
+> astro build
+
+[2m18:55:36[22m [34m[content][39m Syncing content
+[2m18:55:36[22m [34m[content][39m Synced content
+[2m18:55:36[22m [34m[types][39m Generated [2m475ms[22m
+[2m18:55:36[22m [34m[build][39m output: [34m"static"[39m
+[2m18:55:36[22m [34m[build][39m mode: [34m"static"[39m
+[2m18:55:36[22m [34m[build][39m directory: [34mC:\Development\dev-kit\dist\[39m
+[2m18:55:36[22m [34m[build][39m Collecting build info...
+[2m18:55:36[22m [34m[build][39m [32mÔ£ô Completed in 504ms.[39m
+[2m18:55:36[22m [34m[build][39m Building static entrypoints...
+18:55:37 [ERROR] [vite] Ô£ù Build failed in 883ms
+[vite:css] [postcss] It looks like you're trying to use `tailwindcss` directly as a PostCSS plugin. The PostCSS plugin has moved to a separate package, so to continue using Tailwind CSS with PostCSS you'll need to install `@tailwindcss/postcss` and update your PostCSS configuration.
+file: C:/Development/dev-kit/src/styles.css:undefined:NaN
+  Location:
+    undefined:0:NaN
+  Stack trace:
+    at at (C:\Development\dev-kit\node_modules\tailwindcss\dist\lib.js:38:1643)
+    at LazyResult.runAsync (C:\Development\dev-kit\node_modules\postcss\lib\lazy-result.js:290:26)
+    at async compilePostCSS (file:///C:/Development/dev-kit/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:43823:18)
+    at async Object.handler (file:///C:/Development/dev-kit/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42994:11)
+    at async ModuleLoader.addModuleSource (file:///C:/Development/dev-kit/node_modules/rollup/dist/es/shared/node-entry.js:21497:36)

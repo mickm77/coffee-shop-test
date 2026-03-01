@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  price: string | number;
+  description: string;
+}
+const { title, price, description } = Astro.props as Props;
+---
+<div class="border border-gray-100 dark:border-gray-800 rounded-xl p-6 shadow-sm bg-white dark:bg-gray-900 hover:shadow-md transition-shadow duration-300 flex flex-col justify-between h-full">
+  <div>
+    <div class="flex justify-between items-start mb-3">
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white">{title}</h3>
+      <span class="text-lg font-bold text-primary dark:text-primary-light bg-primary/10 dark:bg-primary/20 px-3 py-1 rounded-full">{price}</span>
+    </div>
+    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">{description}</p>
+  </div>
+  <button class="w-full py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">Order Now</button>
+</div>
