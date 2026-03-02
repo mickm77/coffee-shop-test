@@ -9,14 +9,15 @@ export interface Props {
 const { title, description, icon, class: className = '' } = Astro.props;
 ---
 
-<div class={`flex flex-col items-start ${className}`}>
+<div class={`flex flex-col items-center text-center group ${className}`}>
   {icon && (
-    <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-4 shrink-0">
-      <span class="text-2xl" set:html={icon} />
+    <div class="flex items-center justify-center w-20 h-20 rounded-full bg-coffee-100/50 dark:bg-coffee-900/50 border border-primary/10 text-primary mb-8 transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(190,140,99,0.2)]">
+      <span class="text-4xl drop-shadow-sm" set:html={icon} />
     </div>
   )}
-  <h3 class="text-xl font-bold mb-2 text-gray-900">{title}</h3>
-  <p class="text-gray-600 leading-relaxed">
+  <h3 class="text-2xl font-serif font-semibold mb-4 text-secondary dark:text-coffee-50 group-hover:text-primary transition-colors">{title}</h3>
+  <p class="text-secondary-light dark:text-coffee-200 leading-loose font-light">
     {description}
   </p>
+  <div class="w-12 h-[1px] bg-primary/30 mt-6 group-hover:w-24 transition-all duration-500"></div>
 </div>

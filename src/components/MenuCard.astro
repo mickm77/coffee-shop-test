@@ -6,13 +6,18 @@ interface Props {
 }
 const { title, price, description } = Astro.props as Props;
 ---
-<div class="border border-gray-100 dark:border-gray-800 rounded-xl p-6 shadow-sm bg-white dark:bg-gray-900 hover:shadow-md transition-shadow duration-300 flex flex-col justify-between h-full">
-  <div>
-    <div class="flex justify-between items-start mb-3">
-      <h3 class="text-xl font-bold text-gray-900 dark:text-white">{title}</h3>
-      <span class="text-lg font-bold text-primary dark:text-primary-light bg-primary/10 dark:bg-primary/20 px-3 py-1 rounded-full">{price}</span>
+<div class="group relative rounded-2xl p-8 backdrop-blur-md bg-white/60 dark:bg-coffee-950/40 border border-white/20 dark:border-coffee-800/50 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col justify-between h-full hover:-translate-y-2">
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+  
+  <div class="relative z-10">
+    <div class="flex justify-between items-start mb-4 border-b border-coffee-200/50 dark:border-coffee-800/50 pb-4">
+      <h3 class="text-2xl font-bold font-serif text-secondary dark:text-coffee-50 group-hover:text-primary transition-colors">{title}</h3>
+      <span class="text-xl font-medium font-serif text-primary">{price}</span>
     </div>
-    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">{description}</p>
+    <p class="text-secondary-light dark:text-coffee-200 leading-relaxed font-light mb-8">{description}</p>
   </div>
-  <button class="w-full py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">Order Now</button>
+  
+  <button class="relative z-10 w-full py-3 rounded-xl text-sm tracking-wider uppercase font-semibold text-secondary dark:text-coffee-50 bg-white/50 dark:bg-coffee-900/50 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-coffee-950 transition-all duration-300 backdrop-blur-sm border border-coffee-200 dark:border-coffee-800 hover:border-transparent">
+    Order Now
+  </button>
 </div>

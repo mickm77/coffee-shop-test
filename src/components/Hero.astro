@@ -7,48 +7,96 @@ export interface Props {
   secondaryCtaText?: string;
   secondaryCtaUrl?: string;
   backgroundImage?: string;
-  align?: 'left' | 'center';
+  align?: "left" | "center";
 }
 
-const { 
-  headline, 
-  subheadline, 
-  ctaText, 
-  ctaUrl, 
-  secondaryCtaText, 
-  secondaryCtaUrl, 
+const {
+  headline,
+  subheadline,
+  ctaText,
+  ctaUrl,
+  secondaryCtaText,
+  secondaryCtaUrl,
   backgroundImage,
-  align = 'center'
+  align = "center",
 } = Astro.props;
 
-import Button from './Button.astro';
+import Button from "./Button.astro";
 ---
 
-<div class="relative bg-gray-900 overflow-hidden">
-  {backgroundImage && (
-    <div class="absolute inset-0 z-0">
-      <img src={backgroundImage} alt="" class="w-full h-full object-cover opacity-30" />
-      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent mix-blend-multiply" />
-    </div>
-  )}
-  
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class={`py-24 md:py-32 lg:py-48 ${align === 'center' ? 'text-center' : 'text-left md:w-2/3'}`}>
-      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-7xl mb-6">
+<div
+  class="relative min-h-[90vh] flex items-center overflow-hidden bg-coffee-950"
+>
+  {
+    backgroundImage && (
+      <div class="absolute inset-0 z-0">
+        <img
+          src={backgroundImage}
+          alt=""
+          class="w-full h-full object-cover opacity-40 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all duration-[20s] ease-in-out"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-coffee-950 via-coffee-950/60 to-transparent" />
+        <div class="absolute inset-0 bg-gradient-to-r from-coffee-950/80 via-transparent to-coffee-950/80" />
+      </div>
+    )
+  }
+
+  <div
+    class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:mt-0"
+  >
+    <div
+      class={`py-24 md:py-32 lg:py-48 ${align === "center" ? "text-center mx-auto max-w-4xl" : "text-left md:w-2/3 max-w-3xl"} animate-fade-in-up`}
+    >
+      <div
+        class={`${align === "center" ? "mx-auto" : ""} inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md mb-8`}
+      >
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        <span
+          class="text-sm font-medium tracking-widest uppercase text-primary-light"
+          >Voted Best Coffee 2026</span
+        >
+      </div>
+      <h1
+        class="text-5xl md:text-7xl font-light font-serif tracking-tight text-white lg:text-8xl mb-6 leading-tight drop-shadow-xl"
+      >
         {headline}
       </h1>
-      {subheadline && (
-        <p class="mt-6 text-xl text-gray-300 max-w-3xl mb-10 leading-relaxed font-medium">
-          {subheadline}
-        </p>
-      )}
-      <div class={`mt-10 flex flex-col sm:flex-row gap-4 ${align === 'center' ? 'justify-center mx-auto' : 'justify-start'}`}>
-        {ctaText && ctaUrl && (
-          <Button href={ctaUrl} variant="primary" size="lg">{ctaText}</Button>
-        )}
-        {secondaryCtaText && secondaryCtaUrl && (
-          <Button href={secondaryCtaUrl} variant="outline" size="lg" class="border-white text-white hover:bg-white/10">{secondaryCtaText}</Button>
-        )}
+      {
+        subheadline && (
+          <p
+            class={`mt-6 text-xl text-coffee-200 ${align === "center" ? "mx-auto" : ""} max-w-2xl mb-10 leading-relaxed font-light drop-shadow-md`}
+          >
+            {subheadline}
+          </p>
+        )
+      }
+      <div
+        class={`mt-10 flex flex-col sm:flex-row gap-5 ${align === "center" ? "justify-center mx-auto" : "justify-start"}`}
+      >
+        {
+          ctaText && ctaUrl && (
+            <Button
+              href={ctaUrl}
+              variant="primary"
+              size="lg"
+              class="border-none shadow-[0_0_20px_rgba(190,140,99,0.3)] hover:shadow-[0_0_30px_rgba(190,140,99,0.5)] transition-shadow"
+            >
+              {ctaText}
+            </Button>
+          )
+        }
+        {
+          secondaryCtaText && secondaryCtaUrl && (
+            <Button
+              href={secondaryCtaUrl}
+              variant="outline"
+              size="lg"
+              class="border-coffee-200/30 text-white backdrop-blur-sm bg-black/20 hover:bg-white/10 hover:border-white transition-all"
+            >
+              {secondaryCtaText}
+            </Button>
+          )
+        }
       </div>
     </div>
   </div>

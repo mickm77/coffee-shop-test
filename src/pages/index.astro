@@ -28,103 +28,49 @@ try {
   // Graceful fallback if no google api setup
   console.warn("Could not fetch from Google Sheets", e);
   menuItems = [
-    { title: "Artisan Coffee", description: "Freshly roasted single-origin coffee.", price: "$4.50" },
-    { title: "Avocado Toast", description: "Sourdough bread with mashed avocado.", price: "$8.00" },
-    { title: "Acai Bowl", description: "Topped with fresh berries and granola.", price: "$11.00" }
+    { title: "Mocha Supreme", description: "Our signature espresso blend with rich dark chocolate and steamed milk.", price: "$5.50" },
+    { title: "Caramel Latte", description: "Smooth espresso with buttery caramel syrup and velvety foam.", price: "$4.75" },
+    { title: "Cold Brew Double", description: "Slow-steeped for 18 hours, served over ice for a bold finish.", price: "$5.00" }
   ];
 }
 ---
 
 <BaseLayout>
-  <slot name="title">LegoKit - The Ultimate Small Business Starter</slot>
+  <slot name="title">Mocha Stop - The Perfect Brew</slot>
 
   <Navbar />
 
   <Hero
-    headline="Build Websites Faster."
-    subheadline="The ultimate component library for small businesses. Clone this repo, adjust the theme, and deploy your next client site in hours instead of days."
-    ctaText="Get Started Now"
-    ctaUrl="#features"
-    secondaryCtaText="View Components"
-    secondaryCtaUrl="#components"
-    backgroundImage="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
+    headline="Coffee that stops time."
+    subheadline="Experience artisan roasts and premium blends at Mocha Stop. Your neighborhood's favorite morning destination, now serving from our heart to your cup."
+    ctaText="View Our Menu"
+    ctaUrl="#menu"
+    secondaryCtaText="Visit Us"
+    secondaryCtaUrl="#about"
+    backgroundImage="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop"
   />
 
-  <Section id="features" title="Everything you need" subtitle="Features" bg="white">
+  <Section id="about" title="Crafting the Perfect Cup" subtitle="Our Story" bg="white">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
       <Feature 
-        title="Lightning Fast" 
-        description="Built with Astro. Zero client-side JS by default. Unbeatable performance metrics."
-        icon="⚡"
+        title="Artisan Roasting" 
+        description="We source only the finest single-origin beans, roasted locally in small batches for maximum flavor."
+        icon="☕"
       />
       <Feature 
-        title="Design System" 
-        description="Tailwind v4 with highly configurable theme tokens. Rebrand in exactly 30 seconds."
-        icon="🎨"
+        title="Cozy Atmosphere" 
+        description="A warm, inviting space with free Wi-Fi and comfortable seating. Perfect for work or catching up."
+        icon="🏘️"
       />
       <Feature 
-        title="SEO Optimized" 
-        description="Perfect Lighthouse scores straight out of the box. Structured data and proper semantic HTML."
-        icon="🚀"
+        title="Ethically Sourced" 
+        description="Supporting sustainable farming practices and ensuring fair wages for our coffee growers."
+        icon="🌍"
       />
     </div>
   </Section>
 
-  <Section id="components" title="The Lego Box" subtitle="UI Kit Showcase" bg="gray">
-    <div class="space-y-16">
-      
-      <!-- Buttons & Badges -->
-      <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col gap-8">
-        <div>
-          <h3 class="text-xl font-bold mb-4">Buttons</h3>
-          <div class="flex flex-wrap gap-4 items-center">
-            <Button variant="primary">Primary</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="ghost">Ghost Button</Button>
-          </div>
-        </div>
-        
-        <div>
-          <h3 class="text-xl font-bold mb-4">Badges</h3>
-          <div class="flex flex-wrap gap-4 items-center">
-            <Badge variant="primary">New Feature</Badge>
-            <Badge variant="secondary">Popular</Badge>
-            <Badge variant="accent">In Stock</Badge>
-            <Badge variant="gray">Draft</Badge>
-            <Badge variant="success">Completed</Badge>
-            <Badge variant="error">Out of Stock</Badge>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cards Grid -->
-      <div>
-        <h3 class="text-xl font-bold mb-6">Cards & Layouts</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card title="Product Card">
-            <p class="mb-4">Standard card to display products, services, or blog posts. Highly versatile and responsive.</p>
-            <Button variant="outline" class="w-full">Explore</Button>
-          </Card>
-          <Card title="Image Card">
-            <img slot="image" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop" alt="Desk" class="w-full h-48 object-cover" />
-            <p>You can seamlessly inject images into the card's named slot.</p>
-          </Card>
-          <Card title="With Footer">
-            <p>Cards with a separated footer slot for actions or meta information.</p>
-            <div slot="footer" class="flex justify-between items-center w-full">
-              <span class="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">Jan 24, 2026</span>
-              <a href="#" class="text-sm font-semibold text-primary dark:text-primary-light hover:underline">Read More →</a>
-            </div>
-          </Card>
-        </div>
-      </div>
-      
-    </div>
-  </Section>
-
-  <Section id="dynamic-data" title="Dynamic Data" subtitle="Google Sheets Integration" bg="white">
-    <p class="text-center text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">This menu is fetched at build-time directly from a Google Sheet. Update the sheet, and the site updates on the next build.</p>
+  <Section id="menu" title="Our Signature Blends" subtitle="Menu Highlights" bg="gray">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {menuItems.map(item => (
         <MenuCard
@@ -136,53 +82,31 @@ try {
     </div>
   </Section>
 
-  <Section id="testimonials" title="What clients say" subtitle="Testimonials" bg="gray">
+  <Section id="testimonials" title="What Our Regulars Say" subtitle="Testimonials" bg="gray">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <Testimonial 
-        quote="This starter kit saved me 15 hours of work on my last freelance project. The components are incredible."
-        author="Sarah Jenkins"
-        role="Freelance Developer"
+        quote="The Mocha Supreme is easily the best coffee I've ever had. Truly life-changing!"
+        author="James P."
+        role="Coffee Enthusiast"
       />
       <Testimonial 
-        quote="Clients love the performance. Getting a 100/100 Lighthouse score without thinking about it is a superpower."
-        author="Mark Stevenson"
-        role="Agency Owner"
+        quote="My favorite place to work. The atmosphere is quiet, and the staff is incredibly friendly."
+        author="Linda M."
+        role="Remote Freelancer"
       />
     </div>
   </Section>
 
-  <Section id="pricing" title="Simple Pricing" subtitle="Plans" bg="white">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-      <PricingPlan 
-        title="Basic"
-        price="$29"
-        features={["1 User", "Basic Components", "Community Support", "Free Updates"]}
-      />
-      <PricingPlan 
-        title="Pro"
-        price="$79"
-        isPopular={true}
-        features={["5 Users", "All Components", "Priority Support", "Advanced Analytics", "Custom Domain"]}
-      />
-      <PricingPlan 
-        title="Enterprise"
-        price="Custom"
-        buttonText="Contact Sales"
-        features={["Unlimited Users", "Custom Components", "24/7 Phone Support", "SLA Guarantee", "Dedicated Account Manager"]}
-      />
-    </div>
-  </Section>
-
-  <Section id="faq" title="Frequent Questions" subtitle="FAQ" bg="gray">
-    <div class="max-w-3xl mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
-      <Accordion title="Is this actually free to use?">
-        Yes! This is open source. You can clone it, modify it, and use it for commercial projects. It's meant to be your personal starting point.
+  <Section id="faq" title="Common Questions" subtitle="FAQ" bg="white">
+    <div class="max-w-3xl mx-auto bg-white/60 dark:bg-coffee-950/60 backdrop-blur-md rounded-none shadow-sm border border-coffee-200/50 dark:border-coffee-800/50 overflow-hidden">
+      <Accordion title="Do you have plant-based milks?">
+        Yes! We offer Oat, Almond, and Soy milk for all our espresso-based drinks.
       </Accordion>
-      <Accordion title="How do I change the theme colors?">
-        Simply open <code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm text-pink-600 dark:text-pink-400">tailwind.config.mjs</code> and modify the colors in the <code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm text-pink-600 dark:text-pink-400">extend.colors</code> object. The entire UI will instantly update.
+      <Accordion title="Is there outdoor seating?">
+        Absolutely. We have a cozy patio area with plenty of shade.
       </Accordion>
-      <Accordion title="Can I use React/Vue/Svelte in here?">
-        Absolutely. Astro officially supports bringing your own framework. Just run <code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm text-pink-600 dark:text-pink-400">npx astro add react</code> and start mixing React components with Astro components.
+      <Accordion title="Can I host a small meeting at Mocha Stop?">
+        We love hosting meetings! Give us a call in advance if you're bringing a group of 6 or more.
       </Accordion>
     </div>
   </Section>
